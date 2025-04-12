@@ -119,7 +119,7 @@ minikube service web-service --url
 Luego, abre tu navegador en:
 👉 http://ruta_proporcionada_por_minikube
 
-### **10. Flujo de Trabajo Diario
+### **10. Flujo de Trabajo Diario**
 
 - Modificar archivos en web-content
 - Sincronizar los cambios
@@ -131,17 +131,26 @@ kubectl cp C:\cloud-project\web-content\ $(kubectl get pod -l app=web -o jsonpat
 ```bash
 kubectl rollout restart deployment/web-deployment
 ```
+
+Si usas hostPath, montar la carpeta correcta
+
+- En otra terminal (y no la cierres!):
+```bash
+minikube mount "c/cloud-project/web-content"
+```
+Guardar y recargar página servida por Minikube
+
 ## 🚨 Solución de Problemas
 
-# Verificar contenido del pod
+### Verificar contenido del pod
 kubectl exec $POD_NAME -- ls -la /usr/share/nginx/html
 
-# Verificar logs de Nginx
+### Verificar logs de Nginx
 ```bash
 kubectl logs $POD_NAME
 ```
 
-#Diagnóstico completo
+### Diagnóstico completo
 ```bash
 kubectl describe pod -l app=web
 kubectl get events --sort-by=.metadata.creationTimestamp
@@ -155,8 +164,8 @@ minikube stop
 minikube delete
 ```
 
-📚 Recursos Adicionales
+## 📚 Recursos Adicionales
 
-Documentación oficial de Minikube ([Instrucciones](https://minikube.sigs.k8s.io/docs/)) 
+([Documentación oficial de Minikube](https://minikube.sigs.k8s.io/docs/)) 
 
-Kubernetes para principiantes ([Instrucciones](https://kubernetes.io/docs/tutorials/kubernetes-basics/)) 
+([Kubernetes para principiantes](https://kubernetes.io/docs/tutorials/kubernetes-basics/)) 
