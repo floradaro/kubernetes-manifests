@@ -1,4 +1,4 @@
-# 🌐 Static Website Personalizado
+# 🌐 Manifiestos YAML Personalizado
 
 Este proyecto contiene los manifiestos YAML y el proceso completo para desplegar el sitio web en un clúster local usando MiniKube, realizada como parte de la práctica de la materia **Computación en la Nube** del ITU - UNCuyo.
 
@@ -119,6 +119,8 @@ minikube service web-service --url
 Luego, abre tu navegador en:
 👉 http://ruta_proporcionada_por_minikube
 
+Ejemplo: http://127.0.0.1:57103/
+
 ### **10. Flujo de Trabajo Diario**
 
 - Modificar archivos en web-content
@@ -143,7 +145,9 @@ Guardar y recargar página servida por Minikube
 ## 🚨 Solución de Problemas
 
 ### Verificar contenido del pod
+```bash
 kubectl exec $POD_NAME -- ls -la /usr/share/nginx/html
+```
 
 ### Verificar logs de Nginx
 ```bash
